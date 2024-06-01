@@ -4,14 +4,13 @@ const express = require("express");
 const router = express.Router();
 const dates = require("../controllers/dates");
 
-const getUnixTimeFromDate = (date) => date.getTime() / 1000;
+const createDateResponse = (date) => ({
+  unix: date.getTime(),
+  utc: date.toUTCString(),
+});
 
 router.get("/", (req, res) => {
-  const date = new Date();
-  res.json({
-    unix: getUnixTimeFromDate(date),
-    utc: date.toUTCString(),
-  });
+  res.json(createDateResponse(new Date()));
 });
 
 router.get("/:date", (req, res) => {
@@ -28,10 +27,7 @@ router.get("/:date", (req, res) => {
       error: "Invalid Date",
     });
   }
-  res.json({
-    unix: date.getTime() / 1000,
-    utc: date.toUTCString(),
-  });
+  res.json(createDateResponse(date));
 });
 
 module.exports = router;
