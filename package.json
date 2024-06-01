@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "watch": "node --watch src/index.js",
-    "test": "jest"
+    "watch": "node --watch src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.0",
@@ -27,8 +26,5 @@
     "freeCodeCamp"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "supertest": "^7.0.0"
-  }
+  "devDependencies": {}
 }
