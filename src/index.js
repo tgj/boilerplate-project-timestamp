@@ -26,6 +26,12 @@ app.get("/api/hello", function (req, res) {
 
 app.use("/api", datesRouter);
 
+app.get("/health", (_, res) => {
+  res.json({
+    status: "ok",
+  });
+});
+
 // Listen on port set in environment variable or default to 3000
 var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
